@@ -1,4 +1,3 @@
-import { PrismaClientOptions } from '@prisma/client/runtime';
 
 export type LogLevel = 'info' | 'query' | 'warn' | 'error';
 export type LogDefinition = {
@@ -13,7 +12,7 @@ export const PRISMA_LOG_CONFIG: Array<LogDefinition> = [
   { level: 'query', emit: 'stdout' },
 ];
 
-export const PRISMA_CLIENT_OPTIONS: PrismaClientOptions = {
+export const PRISMA_CLIENT_OPTIONS = {
   log: PRISMA_LOG_CONFIG,
   rejectOnNotFound: true,
   __internal: {
