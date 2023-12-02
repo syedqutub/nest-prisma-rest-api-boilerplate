@@ -11,12 +11,14 @@ import { LoggerModule } from '../logger/logger.module';
 import { AppService } from './app.service';
 import { AppController } from './app.controller';
 import { LoggerMiddleware } from '../../middlewares/logger.middleware';
+import { CarModule } from '../car/car.module';
 
 @Module({
   imports: [
     LoggerModule,
     PrismaModule,
     AuthModule,
+    CarModule,
     UserModule,
     PostModule,
     ConfigModule.forRoot({ isGlobal: true, load: [() => GLOBAL_CONFIG] }),

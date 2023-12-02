@@ -34,7 +34,7 @@ async function bootstrap() {
   );
 
   app.use(cookieParser());
-
+  
   app.useGlobalPipes(new ValidationPipe());
 
   const configService = app.get<ConfigService>(ConfigService);
