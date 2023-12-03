@@ -23,3 +23,9 @@ export class CreateCarRequestDto{
     @IsInt()
     engineNo:number;   
 }
+
+export class UpdateCarRequestDto extends CreateCarRequestDto {
+    @ApiProperty()
+    @IsInt()
+    id:number;
+}
