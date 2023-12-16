@@ -1,13 +1,15 @@
 import {
   Body,
   Controller,
+  Get,
   Post,
   Put,
+  Query,
 } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
 
 import { CarService } from './car.service';
-import { CreateCarRequestDto, UpdateCarRequestDto } from './car.requet';
+import { CarListDto, CreateCarRequestDto, UpdateCarRequestDto } from './car.requet';
 
 @ApiTags('cars')
 @Controller('/cars')
@@ -23,5 +25,10 @@ export class CarController {
   @Put('car')
   async update(@Body() req:UpdateCarRequestDto) : Promise<boolean> {
     return await this.carService.update(req);
+  }
+
+  @Get('/list')
+  async getCarList(@Query() request: CarListDto) {
+    return await this.carService.carListing(request);
   }
 }
